@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For you, my love...</title>
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at top left, #4d0000, #1a0000);
+    overflow: hidden;
+    font-family: 'Brush Script MT', cursive;
+    text-align: center;
+    color: black;
+  }
+
+  h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #ff6699, 0 0 20px #ff3366;
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes glow {
+    from { text-shadow: 0 0 10px #ff6699, 0 0 20px #ff3366; }
+    to { text-shadow: 0 0 20px #ff99cc, 0 0 30px #ff6699; }
+  }
+
+  .love-list {
+    background: rgba(255,182,193,0.15);
+    padding: 25px 40px;
+    border-radius: 25px;
+    max-width: 80%;
+    max-height: 60vh;
+    overflow-y: auto;
+    font-size: 22px;
+    line-height: 1.6;
+    box-shadow: 0 0 15px rgba(255,0,0,0.3);
+    z-index: 2;
+    position: relative;
+    text-align: left;
+  }
+
+  .heart-floating {
+    position: absolute;
+    bottom: -50px;
+    font-size: 28px;
+    color: #ff1a75;
+    animation: floatUp 10s linear infinite;
+    text-shadow: 0 0 8px #ff66b2, 0 0 15px #ff3385;
+  }
+
+  @keyframes floatUp {
+    0% { transform: translateY(0) scale(1); opacity:1; }
+    100% { transform: translateY(-110vh) scale(1.5); opacity:0; }
+  }
+
+  .next-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: #ff1a75;
+    color: white;
+    font-size: 22px;
+    border: none;
+    padding: 15px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 0 15px #ff4da6, 0 0 30px #ff80bf;
+    transition: all 0.3s ease;
+  }
+
+  .next-btn:hover {
+    background: #ff3385;
+    transform: scale(1.1);
+  }
+
+</style>
+</head>
+<body>
+
+<h1>For you, my love…</h1>
+
+<!-- Floating hearts -->
+<div class="heart-floating" style="left:10%;">💖</div>
+<div class="heart-floating" style="left:25%; animation-delay:2s;">💘</div>
+<div class="heart-floating" style="left:50%; animation-delay:4s;">❤</div>
+<div class="heart-floating" style="left:70%; animation-delay:6s;">💖</div>
+<div class="heart-floating" style="left:85%; animation-delay:8s;">💘</div>
+
+<!-- Love list -->
+<div class="love-list">
+❤ I love you (English)<br>
+❤ Te amo (Spanish)<br>
+❤ Je t’aime (French)<br>
+❤ Ich liebe dich (German)<br>
+❤ Ti amo (Italian)<br>
+❤ Eu te amo (Portuguese)<br>
+❤ Я тебя люблю (Russian)<br>
+❤ 愛してる (Japanese)<br>
+❤ 사랑해 (Korean)<br>
+❤ 我爱你 (Chinese)<br>
+❤ أحبك (Arabic)<br>
+❤ Σ’ αγαπώ (Greek)<br>
+❤ Seni seviyorum (Turkish)<br>
+❤ Ik hou van jou (Dutch)<br>
+❤ Jag älskar dig (Swedish)<br>
+❤ Jeg elsker dig (Danish)<br>
+❤ Jeg elsker deg (Norwegian)<br>
+❤ Rakastan sinua (Finnish)<br>
+❤ Kocham cię (Polish)<br>
+❤ Miluji tě (Czech)<br>
+❤ Szeretlek (Hungarian)<br>
+❤ Volim te (Croatian)<br>
+❤ Te iubesc (Romanian)<br>
+❤ Aš tave myliu (Lithuanian)<br>
+❤ Tôi yêu bạn (Vietnamese)<br>
+❤ Mahal kita (Filipino)<br>
+❤ আমি তোমায় ভালবাসি (Bengali)<br>
+❤ हम अहाँ स प्रेम करैत छी (Maithili)<br>
+❤ אני אוהב אותך (Hebrew)<br>
+❤ أحبك (Moroccan Arabic)<br>
+❤ Eg elski teg (Faroese)<br>
+❤ Te dua (Albanian)<br>
+❤ Te volim (Serbian)<br>
+❤ Mina armastan sind (Estonian)<br>
+❤ T’estimo (Catalan)<br>
+❤ Ik liebe dich (Low German)<br>
+❤ S’ te amo (Galician)<br>
+❤ Mən səni sevirəm (Azerbaijani)<br>
+❤ Volim te (Bosnian)<br>
+❤ Jag älskar dig (Swedish variant)<br>
+❤ S’ agapo (Greek Cypriot)<br>
+❤ T’amo (Italian dialect)<br>
+❤ Ek is lief vir jou (Afrikaans)<br>
+❤ Mi amas vin (Esperanto)<br>
+❤ Es tevi miilu (Latvian)<br>
+❤ Naku penda (Swahili)<br>
+❤ Seni seviyorum (Azerbaijani variant)<br>
+❤ I love you (Hawaiian)<br>
+❤ Tôi yêu em (Vietnamese variant)<br>
+❤ Saranghae (Korean variant)<br>
+❤ Te dua (Albanian variant)<br>
+❤ Volim te (Bosnian variant)<br>
+</div>
+
+<!-- Next button -->
+<button class="next-btn" onclick="location.href='page4.html'">
+  <span>Next</span> ➝
+</button>
+
+</body>
+</html>
