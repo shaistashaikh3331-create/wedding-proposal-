@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hi Sweetheart</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at top left, #4d0000, #1a0000);
+      overflow: hidden;
+      font-family: 'Brush Script MT', cursive;
+      text-align: center;
+      color: black;
+    }
+
+    h1 {
+      font-size: 70px;
+      text-shadow: 0 0 10px #ff6699, 0 0 20px #ff3366;
+      animation: glow 2s ease-in-out infinite alternate;
+      margin: 0;
+    }
+
+    p {
+      font-size: 28px;
+      margin: 20px 40px;
+      max-width: 80%;
+      text-shadow: 0 0 5px #ff99cc;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff6699, 0 0 20px #ff3366; }
+      to { text-shadow: 0 0 20px #ff99cc, 0 0 30px #ff6699; }
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -50px;
+      font-size: 28px;
+      color: #ff1a75;
+      animation: floatUp 10s linear infinite;
+      text-shadow: 0 0 8px #ff66b2, 0 0 15px #ff3385;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+    }
+
+    .next-btn {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background: #ff1a75;
+      color: white;
+      font-size: 22px;
+      border: none;
+      padding: 15px 25px;
+      border-radius: 50px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 0 15px #ff4da6, 0 0 30px #ff80bf;
+      transition: all 0.3s ease;
+    }
+
+    .next-btn:hover {
+      background: #ff3385;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>Hi Sweetheart</h1>
+  <p>Every moment with you feels like a dream come true</p>
+
+  <!-- Floating hearts -->
+  <div class="heart" style="left:10%;">💖</div>
+  <div class="heart" style="left:25%; animation-delay: 2s;">💘</div>
+  <div class="heart" style="left:50%; animation-delay: 4s;">❤</div>
+  <div class="heart" style="left:70%; animation-delay: 6s;">💖</div>
+  <div class="heart" style="left:85%; animation-delay: 8s;">💘</div>
+
+  <p style="position:absolute; bottom:80px; width:100%;">This is the start to something beautiful… please click on next 💕</p>
+
+  <!-- Next button -->
+  <button class="next-btn" onclick="location.href='page2.html'">
+    <span>Next</span> ➝
+  </button>
+
+  <!-- Notification JS -->
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+      fetch("https://formspree.io/f/xwprpbzp", {
+          method: "POST",
+          headers: { 
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+          },
+          body: JSON.stringify({
+              name: "Visitor opened the site",
+              _replyto: "shaista.shaikh5551@gmail.com", // replace with your email
+              _subject: "Your Love Site Was Opened ❤"
+          })
+      });
+  });
+  </script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marriage Certificate</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Dancing+Script&display=swap" rel="stylesheet">
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: #330000; /* dark red */
+    font-family: 'Cinzel', serif;
+    overflow-y: auto;
+    position: relative;
+}
+
+/* Floating hearts & petals */
+@keyframes floatItems {
+    0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+}
+.float-item {
+    position: absolute;
+    font-size: 20px;
+    animation: floatItems linear infinite;
+    user-select: none;
+}
+.float1 { color: #ff99cc; left: 10%; animation-duration: 12s; }
+.float2 { color: #ffcc66; left: 25%; animation-duration: 15s; }
+.float3 { color: #ff66aa; left: 40%; animation-duration: 10s; }
+.float4 { color: #ff99cc; left: 60%; animation-duration: 18s; }
+.float5 { color: #ffcc66; left: 75%; animation-duration: 14s; }
+.float6 { color: #ff66aa; left: 90%; animation-duration: 16s; }
+
+/* Certificate container */
+.certificate-container {
+    width: 850px;
+    max-width: 90%;
+    margin: 50px auto;
+    position: relative;
+    background: #fff0f5; /* soft pink paper */
+    border: 15px solid #ffb6c1; /* soft floral border */
+    border-radius: 25px;
+    padding: 50px 40px 120px 40px; /* extra bottom padding for signatures & seal */
+    box-shadow: 0 0 35px rgba(0,0,0,0.5);
+}
+
+/* Certificate text styling */
+h1 { 
+    text-align: center; 
+    font-family: 'Cinzel', serif; 
+    font-size: 48px; 
+    margin-bottom: 40px;
+    color: #b30059;
+}
+label {
+    font-weight: bold;
+    display: block;
+    margin: 10px 0 5px;
+    font-size: 20px;
+    color: #330000;
+}
+input, textarea {
+    font-family: 'Dancing Script', cursive;
+    font-size: 22px;
+    width: 100%;
+    padding: 8px 10px;
+    margin-bottom: 15px;
+    border: 2px solid #ff99cc;
+    border-radius: 8px;
+    background: #fff0f5;
+    color: #330000;
+    outline: none;
+}
+textarea { height: 80px; resize: none; }
+
+/* Signature lines */
+.signature-boxes {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+.signature-box {
+    width: 45%;
+    text-align: center;
+}
+.signature-line {
+    margin-top: 60px;
+    border-top: 2px solid #330000;
+    width: 100%;
+}
+
+/* Golden seal below signatures */
+.seal {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle at center, #ffd700 0%, #e6c200 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(255,215,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cinzel', serif;
+    font-weight: bold;
+    font-size: 16px;
+    color: #330000;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Buttons */
+.buttons {
+    text-align: center;
+    margin-top: 20px;
+}
+button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    background: #ff99cc;
+    color: #330000;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+}
+button:hover { transform: scale(1.05); }
+
+</style>
+</head>
+<body>
+
+<!-- Floating hearts -->
+<div class="float-item float1">❤</div>
+<div class="float-item float2">💛</div>
+<div class="float-item float3">💖</div>
+<div class="float-item float4">💗</div>
+<div class="float-item float5">💛</div>
+<div class="float-item float6">💖</div>
+
+<div class="certificate-container" id="certificate">
+    <h1>Certificate of Marriage</h1>
+    
+    <label for="partner1">Partner 1 Name</label>
+    <input type="text" id="partner1" placeholder="Enter Name">
+    
+    <label for="partner2">Partner 2 Name</label>
+    <input type="text" id="partner2" placeholder="Enter Name">
+    
+    <label for="birthday1">Partner 1 Birthdate</label>
+    <input type="text" id="birthday1" placeholder="DD/MM/YYYY">
+    
+    <label for="birthday2">Partner 2 Birthdate</label>
+    <input type="text" id="birthday2" placeholder="DD/MM/YYYY">
+    
+    <label for="marriageDate">Marriage Date</label>
+    <input type="text" id="marriageDate" placeholder="DD/MM/YYYY">
+    
+    <label for="legalStatement">Legal Statement</label>
+    <textarea id="legalStatement" placeholder="Enter legal declaration"></textarea>
+    
+    <div class="signature-boxes">
+        <div class="signature-box">
+            <label for="signature1">Partner 1 Signature</label>
+            <input type="text" id="signature1" placeholder="Sign here">
+            <div class="signature-line"></div>
+        </div>
+        <div class="signature-box">
+            <label for="signature2">Partner 2 Signature</label>
+            <input type="text" id="signature2" placeholder="Sign here">
+            <div class="signature-line"></div>
+        </div>
+    </div>
+
+    <div class="seal">Official Seal</div>
+</div>
+
+<div class="buttons">
+    <button onclick="downloadCertificate()">Download Certificate</button>
+    <button onclick="nextPage()">Next ➡</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+function nextPage() {
+    window.location.href = 'page6.html';
+}
+
+function downloadCertificate() {
+    const certificate = document.getElementById('certificate');
+    html2canvas(certificate).then(canvas => {
+        const imgData = canvas.toDataURL('image/png');
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF('portrait', 'pt', [canvas.width, canvas.height]);
+        pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
+        pdf.save('Marriage_Certificate.pdf');
+    });
+}
+</script>
+
+</body>
+</html>
