@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Beautiful Note</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at top left, #4d0000, #1a0000);
+      overflow: hidden;
+      font-family: 'Brush Script MT', cursive;
+      text-align: center;
+      color: black;
+    }
+
+    .note-container {
+      background: rgba(255,182,193,0.15);
+      padding: 30px 45px;
+      border-radius: 25px;
+      max-width: 80%;
+      font-size: 26px;
+      line-height: 1.7;
+      box-shadow: 0 0 15px rgba(255,0,0,0.3);
+      z-index: 2;
+      position: relative;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -50px;
+      font-size: 28px;
+      color: #ff1a75;
+      animation: floatUp 10s linear infinite;
+      text-shadow: 0 0 8px #ff66b2, 0 0 15px #ff3385;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 1; }
+      100% { transform: translateY(-110vh) scale(1.5); opacity: 0; }
+    }
+
+    .next-btn {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      background: #ff1a75;
+      color: white;
+      font-size: 22px;
+      border: none;
+      padding: 15px 25px;
+      border-radius: 50px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 0 15px #ff4da6, 0 0 30px #ff80bf;
+      transition: all 0.3s ease;
+    }
+
+    .next-btn:hover {
+      background: #ff3385;
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating hearts -->
+  <div class="heart" style="left:10%;">💖</div>
+  <div class="heart" style="left:25%; animation-delay: 2s;">💘</div>
+  <div class="heart" style="left:50%; animation-delay: 4s;">❤</div>
+  <div class="heart" style="left:70%; animation-delay: 6s;">💖</div>
+  <div class="heart" style="left:85%; animation-delay: 8s;">💘</div>
+
+  <!-- Note container -->
+  <div class="note-container">
+    <p>Hi sweetheart 💖,</p>
+    <p>Every moment with you is a dream I never want to wake from.</p>
+    <p>Your laughter fills my heart with endless joy, and your smile lights up even my darkest days.</p>
+    <p>I love you more than words could ever describe. You are my heart, my soul, my forever, and every beat whispers your name.</p>
+    <p>Being with you feels like the universe itself is smiling at us, and I cherish every second, every glance, every touch.</p>
+    <p>Always and forever yours,</p>
+    <p>❤</p>
+  </div>
+
+  <!-- Bottom intro line -->
+  <p style="position:absolute; bottom:80px; width:100%; font-size:20px;">This is the start to something beautiful… please click on next 💕</p>
+
+  <!-- Next button -->
+  <button class="next-btn" onclick="location.href='page3.html'">
+    <span>Next</span> ➝
+  </button>
+
+</body>
+</html>
