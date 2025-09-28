@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will You Marry Me?</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #1a0000;
+        overflow: hidden;
+        font-family: 'Arial', sans-serif;
+        text-align: center;
+        color: white;
+        position: relative;
+    }
+    h1 {
+        font-size: 48px;
+        margin-bottom: 30px;
+        text-shadow: 0 0 10px #ff6699, 0 0 20px #ff3366;
+        animation: glow 2s ease-in-out infinite alternate;
+    }
+    @keyframes glow {
+        from { text-shadow: 0 0 10px #ff6699, 0 0 20px #ff3366; }
+        to { text-shadow: 0 0 20px #ff99cc, 0 0 30px #ff6699; }
+    }
+    .heart-floating {
+        position: absolute;
+        bottom: -50px;
+        font-size: 28px;
+        color: #ff1a75;
+        animation: floatUp 10s linear infinite;
+        text-shadow: 0 0 8px #ff66b2, 0 0 15px #ff3385;
+    }
+    @keyframes floatUp {
+        0% { transform: translateY(0) scale(1); opacity:1; }
+        100% { transform: translateY(-110vh) scale(1.5); opacity:0; }
+    }
+    /* Ring box */
+    .ring-box { width: 140px; height: 100px; perspective: 600px; margin-bottom: 30px; position: relative; }
+    .box-lid { width: 100%; height: 40%; background: #8B0000; border-radius: 5px 5px 0 0; transform-origin: bottom; transform: rotateX(0deg); animation: openLid 1.5s forwards 1s; }
+    .box-base { width: 100%; height: 60%; background: #5c0000; border-radius: 0 0 5px 5px; position: relative; overflow: visible; }
+    .perfect-ring {
+        position: absolute;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%) scale(0);
+        width: 60px;
+        height: 60px;
+        animation: showRing 1.5s forwards 2.5s;
+    }
+    .ring-outer {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: radial-gradient(circle at center, #FFD700 25%, #FFA500 30%, #FFD700 35%, #FFF8B0 40%, #FFD700 45%, #FFA500 50%, #FFD700 55%);
+        box-shadow: 0 0 15px rgba(255, 215, 0, 0.8), 0 0 25px rgba(255, 165, 0, 0.6), 0 0 35px rgba(255, 255, 255, 0.3);
+    }
+    .ring-inner {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background: #1a0000;
+        border-radius: 50%;
+        top: 15px;
+        left: 15px;
+    }
+    @keyframes openLid { from { transform: rotateX(0deg); } to { transform: rotateX(-120deg); } }
+    @keyframes showRing { 0% { transform: translateX(-50%) scale(0) rotate(0deg); opacity: 0; } 50% { transform: translateX(-50%) scale(1.2) rotate(180deg); opacity: 0.8; } 100% { transform: translateX(-50%) scale(1) rotate(360deg); opacity: 1; } }
+
+    .proposal-btn {
+        margin: 10px;
+        padding: 15px 35px;
+        font-size: 22px;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        color: white;
+        background: #ff1a75;
+        box-shadow: 0 0 15px #ff4da6, 0 0 30px #ff80bf;
+        transition: all 0.3s ease;
+    }
+    .proposal-btn:hover { background: #ff3385; transform: scale(1.1); }
+
+    /* NEXT BUTTON */
+    .next-btn {
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+        padding: 15px 30px;
+        font-size: 20px;
+        border-radius: 50px;
+        border: none;
+        background: #ff66cc;
+        color: white;
+        box-shadow: 0 0 10px #ff99cc, 0 0 20px #ff66cc;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .next-btn:hover { background: #ff3385; transform: scale(1.1); }
+</style>
+</head>
+<body>
+
+<h1>Will you marry me? 💍</h1>
+
+<!-- Floating hearts -->
+<div class="heart-floating" style="left:10%;">💖</div>
+<div class="heart-floating" style="left:25%; animation-delay:2s;">💘</div>
+<div class="heart-floating" style="left:50%; animation-delay:4s;">❤</div>
+<div class="heart-floating" style="left:70%; animation-delay:6s;">💖</div>
+<div class="heart-floating" style="left:85%; animation-delay:8s;">💘</div>
+
+<!-- Ring box -->
+<div class="ring-box">
+    <div class="box-lid"></div>
+    <div class="box-base">
+        <div class="perfect-ring">
+            <div class="ring-outer"></div>
+            <div class="ring-inner"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Proposal buttons -->
+<button class="proposal-btn" onclick="alert('He said YES! 💖');">Yes</button>
+<button class="proposal-btn" onclick="alert('He said NO 💔');">No</button>
+
+<!-- Next Button -->
+<button class="next-btn" onclick="window.location.href='page5.html'">Next →</button>
+
+</body>
+</html>
