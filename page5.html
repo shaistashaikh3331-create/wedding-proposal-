@@ -15,7 +15,7 @@ body {
     position: relative;
 }
 
-/* Floating hearts & petals */
+/* Floating hearts & emojis */
 @keyframes floatItems {
     0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
     50% { opacity: 1; }
@@ -33,6 +33,10 @@ body {
 .float4 { color: #ff99cc; left: 60%; animation-duration: 18s; }
 .float5 { color: #ffcc66; left: 75%; animation-duration: 14s; }
 .float6 { color: #ff66aa; left: 90%; animation-duration: 16s; }
+.float7 { color: #ff6699; left: 15%; animation-duration: 13s; }
+.float8 { color: #ff33cc; left: 35%; animation-duration: 17s; }
+.float9 { color: #ff99ff; left: 55%; animation-duration: 11s; }
+.float10 { color: #ff3366; left: 80%; animation-duration: 16s; }
 
 /* Certificate container */
 .certificate-container {
@@ -138,13 +142,17 @@ button:hover { transform: scale(1.05); }
 </head>
 <body>
 
-<!-- Floating hearts -->
+<!-- Floating hearts and emojis -->
 <div class="float-item float1">❤</div>
 <div class="float-item float2">💛</div>
 <div class="float-item float3">💖</div>
 <div class="float-item float4">💗</div>
 <div class="float-item float5">💛</div>
 <div class="float-item float6">💖</div>
+<div class="float-item float7">💞</div>
+<div class="float-item float8">💝</div>
+<div class="float-item float9">💕</div>
+<div class="float-item float10">❣</div>
 
 <div class="certificate-container" id="certificate">
     <h1>Certificate of Marriage</h1>
@@ -198,21 +206,14 @@ function nextPage() {
 // Mobile-proof PDF download
 function downloadCertificate() {
     const certificate = document.getElementById('certificate');
-    html2canvas(certificate, { scale: 2 }).then(canvas => {
+    html2canvas(certificate, { scale: 2 }).then(canvas => { // higher resolution
         const imgData = canvas.toDataURL('image/png');
         const { jsPDF } = window.jspdf;
         const pdf = new jsPDF('portrait', 'pt', [canvas.width, canvas.height]);
         pdf.addImage(imgData, 'PNG', 0, 0, canvas.width, canvas.height);
 
-        // Force download like a normal Android PDF
-        pdf.output('blob').then(blob => {
-            const link = document.createElement('a');
-            link.href = URL.createObjectURL(blob);
-            link.download = 'Marriage_Certificate.pdf';
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        });
+        // Works on mobile like Chrome download
+        pdf.save('Marriage_Certificate.pdf');
     });
 }
 
